@@ -1,7 +1,7 @@
 import random
 GUESS = 6 
 wordlist = []
-letterList = []
+
 
 with open("words.txt") as file:
 
@@ -10,16 +10,39 @@ with open("words.txt") as file:
         wordlist.append(splitWord)
 
 
+global word
+word = random.choice(wordlist)[0]
+print(word)
 
-word = random.choice(wordlist)
+letterList = [*word]
+print(letterList)
+guessLetter = input("Guess the letters:")
 
+def guessingLetters():
+    for letter in word:
+        if letter not in guessLetter:
+            return False
+    return True
 
+if guessingLetters():
+    print("You Win!")
+else:
+    print("Not Done Yet!")
 
-def duringGame():
-   for i in word:
-       if i in letterList:
-           wordlist.append(i)
-       else:
-           wordlist.append("_")
+printedWord = []
 
-guessLetter = input("Guess the letters")
+    
+for letter in word:
+    printedWord.append("")
+
+def printWord():
+    global printedWord
+    global guessLetter
+    global word
+    letter_num = 0
+    for letter in word:
+        if letter in guessLetter:
+            printedWord[letter_num] = letter
+        else:
+            printedWord[letter_num] = "_"
+        letter_num += 1
