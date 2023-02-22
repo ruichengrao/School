@@ -1,11 +1,11 @@
 shoppingList = {}
-itemCount = input("How much items?")
+itemCount = input("How much items? ")
 
 itemInt = int(itemCount)
 
 for i in range(itemInt):
-    item = input("Items Name")
-    amount = input("Number of Items")
+    item = input("Items Name: ")
+    amount = input("Cost of Items: ")
     shoppingList[item] = amount
 
 var = 0.0
