@@ -12,7 +12,7 @@ with open("side projects\words.txt") as file:
 
 global word
 word = random.choice(wordlist)[0]
-#print(word)
+print(word)
 
 def guessingLetters():
     for letter in word:
@@ -59,13 +59,16 @@ def main():
             letterGuess = input("Guess the letters:")
         letterList.append(letterGuess)
         if letterGuess in word:
-            print("The letter is '{}' in the word!".format(letterGuess))
+            print("The letter '{}' is in the word!".format(letterGuess))
+            print("_____________________________________________________________")
             if guessingLetters():
                 print(word)
                 print("You won!")
                 gameover = True
         else:
-            print("The letter is '{}' not in the word!".format(letterGuess))
+            print("The letter '{}' is not in the word!".format(letterGuess))
+            print("_____________________________________________________________")
+
             guessCount+=1
             if guessCount == GUESS:
                 print("You Lost! :( ")
