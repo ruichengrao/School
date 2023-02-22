@@ -12,7 +12,7 @@ with open("side projects\words.txt") as file:
 
 global word
 word = random.choice(wordlist)[0]
-print(word)
+#print(word)
 
 def guessingLetters():
     for letter in word:
@@ -46,17 +46,31 @@ def main():
     global word
     global printedWord
     global gameover
-    
-    while gameover == False:
+    global letterGuess
+
+    guessCount = 0
+
+    while gameover == False: 
+        printWord()
+        print("You have {} guess left".format(GUESS - guessCount))
         letterGuess = input("Guess the letters:")
-        if letterGuess in letterList:
+        while letterGuess in letterList:
             print("You have already guessed that letter!")
+            letterGuess = input("Guess the letters:")
+        letterList.append(letterGuess)
+        if letterGuess in word:
+            print("The letter is '{}' in the word!".format(letterGuess))
+            if guessingLetters():
+                print(word)
+                print("You won!")
+                gameover = True
         else:
-            guessingLetters()
-            printWord()
-            guesses = GUESS - 1
-        
-  
+            print("The letter is '{}' not in the word!".format(letterGuess))
+            guessCount+=1
+            if guessCount == GUESS:
+                print("You Lost! :( ")
+                print(word)
+                gameover = True
 
-
+    
 main()
