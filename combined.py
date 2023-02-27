@@ -76,11 +76,7 @@ if __name__=="__main__":
 
     # reading the image
     img = cv2.imread("C:/Users/McIntosh Aeronautics/Documents/droneOpencv/Competition/GPS_IMG.png", 1)
-    #scale_percent = 70
-    #width = int(img.shape[1] * scale_percent / 100)
-    #height = int(img.shape[0] * scale_percent / 100)
-    #img = cv2.resize(img, (width, height), interpolation = cv2.INTER_AREA)
-
+    
     #cv2.imwrite("C:/Users/McIntosh Aeronautics/Documents/mppython/drone_images/image_2.jpeg", img)
     #img2 = cv2.imread('/Users/sparky/Documents/DroneOpencv/FayetteFlyers-mavic.png', 1)
     size = (len(img), len(img[0]))
