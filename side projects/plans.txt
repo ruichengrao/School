@@ -1,0 +1,10 @@
+main function:
+1. Print the board to the screen (new_screen)
+2. Ask player to enter a row
+3. Ask player to enter a column
+4. Check if the row and column are within the game's grid (>= 0 and < 10)
+4a. Check if the player's inputs are empty ("")
+  - If input is invalid, tell player and ask for another input
+5. Check if the player has already entered this row and column
+  - If player has already entered this tile, tell player and ask for another input
+6. If input is valid and a new tile, change the tile to an "X"
