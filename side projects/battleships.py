@@ -41,7 +41,7 @@ class Ships:
 
         while empty_space == False:
             empty_space = True
-            if self.direction
+            if self.direction:
         
 
 def random_position(board, xBound, yBound):
