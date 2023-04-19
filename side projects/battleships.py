@@ -3,6 +3,51 @@ from random import randint
 board = []
 enemy_board = []
 
+class Ships:
+    def __init__(self, name, size) -> None:
+        self.name = name
+        self.size = size
+        self.health = size
+        self.position = []
+        self.direction = int(random() * 2) * 90
+        empty_space = False
+        
+        row = 0
+        column = 0
+
+        while empty_space == False:
+            empty_space = True
+            if self.direction == 90:
+                (row, column) = random_position(enemy_board, 0, self.size)
+                random_position(enemy_board, self.size, 0)
+                for i in range(self.size):
+                    if enemy_board[row + i] [column] == 1:
+                        empty_space = False
+                        break
+
+            elif self.direction == 0:
+                (row, column) = random_position(enemy_board, self.size, 0)
+                for i in range(self.size):
+                    if enemy_board[row] [column + i] == 1:
+                        empty_space = False
+                        break
+
+
+        if self.direction == 0:
+            for i in range(self.size):
+                self.position.append([row,column + i])
+
+        elif self.direction == 90:
+            for i in range(self.size):
+                self.position.append([row,column + i])
+            
+                
+
+       
+def random_position(board, xBound, yBound):
+                xCoord = randint(0, len(board)- 1 - xBound)
+                yCoord = randint(0, len(board)- 1 - yBound)
+                return (xCoord,yCoord)
 for i in range(10):
     row = []
     for j in range(10):
@@ -26,35 +71,16 @@ def printBoard(enemy_board):
        print(" ".join(row))
 
 
-class Ships:
-    def __init__(self, name, size, health) -> None:
-        self.name = name
-        self.size = size
-        self.health = size
-        self.position = []
-        self.direction = int(random() * 2) * 90
-        empty_space = False
-        if self.direction == 0:
-            random_position(enemy_board, self.size, 0)
-        else:
-            random_position(enemy_board, 0, self.size)
 
-        while empty_space == False:
-            empty_space = True
-            if self.direction:
-        
 
-def random_position(board, xBound, yBound):
-    xCoord = randint(0, len(board)- 1 - xBound)
-    yCoord = randint(0, len(board)- 1 - yBound)
-    return (xCoord,yCoord)
+
 
 ships = []
-ships.append(Ships("Submarine", 1, 1))
-ships.append(Ships("Corsair", 2, 2))
-ships.append(Ships("Cruiser", 3, 3))
-ships.append(Ships("Battleship", 4,4 ))
-ships.append(Ships("Carrier", 5,5))
+ships.append(Ships("Submarine", 1))
+ships.append(Ships("Corsair", 2))
+ships.append(Ships("Cruiser", 3))
+ships.append(Ships("Battleship", 4))
+ships.append(Ships("Carrier", 5))
 print(ships)
 
 
